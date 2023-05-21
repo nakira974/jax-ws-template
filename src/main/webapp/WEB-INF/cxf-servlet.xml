@@ -9,9 +9,9 @@
        http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd
        http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd"
 >
-    <jaxws:server id="fileTransferService" serviceClass="coffee.lkh.robotws.IFileTransferService" address="/filetransferservice">
+    <jaxws:server id="fileTransferService" serviceClass="coffee.lkh.robotws.webservices.IFileTransferService" address="/filetransferservice">
         <jaxws:serviceBean>
-            <bean class="coffee.lkh.robotws.FileTransferService"/>
+            <bean class="coffee.lkh.robotws.webservices.implemantations.FileTransferService"/>
         </jaxws:serviceBean>
     </jaxws:server>
 </beans>

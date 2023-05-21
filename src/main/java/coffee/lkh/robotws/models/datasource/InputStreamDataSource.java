@@ -1,4 +1,4 @@
-package coffee.lkh.robotws;
+package coffee.lkh.robotws.models.datasource;
 
 import java.io.IOException;
 import java.io.InputStream;

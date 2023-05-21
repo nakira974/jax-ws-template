@@ -1,5 +1,7 @@
-package coffee.lkh.robotws;
+package coffee.lkh.robotws.webservices.implemantations;
 
+import coffee.lkh.robotws.models.datasource.InputStreamDataSource;
+import coffee.lkh.robotws.webservices.IFileTransferService;
 import jakarta.activation.DataHandler;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebService;
@@ -8,12 +10,11 @@ import jakarta.xml.soap.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.atomic.AtomicReference;
 
 
-@WebService(endpointInterface = "coffee.lkh.robotws.FileTransferService",
+@WebService(endpointInterface = "coffee.lkh.robotws.webservices.implemantations.FileTransferService",
         serviceName = "FileTransferService")
 public class FileTransferService implements IFileTransferService {
 

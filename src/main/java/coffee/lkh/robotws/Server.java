@@ -1,9 +1,8 @@
 package coffee.lkh.robotws;
 
+import coffee.lkh.robotws.webservices.implemantations.FileTransferService;
 import jakarta.xml.ws.Endpoint;
 import org.apache.cxf.feature.LoggingFeature;
-
-import java.io.File;
 
 public class Server {
     protected Server() throws Exception {

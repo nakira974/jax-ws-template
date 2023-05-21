@@ -11,6 +11,9 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
     jcenter()
+    maven {
+        url "https://clojars.org/repo/"
+    }
 }
 
 
@@ -61,6 +64,9 @@ dependencies {
 
     //Apache Tomcat dependencies
     compileOnly("org.apache.tomcat:tomcat-catalina:11.0.0-M5")
+
+    //Capture file reader dependencies
+    implementation("jnetpcap:jnetpcap:1.5.r1457-1i")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
