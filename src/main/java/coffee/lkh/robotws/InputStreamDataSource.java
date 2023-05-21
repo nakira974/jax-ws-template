@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-class InputStreamDataSource implements jakarta.activation.DataSource {
+public class InputStreamDataSource implements jakarta.activation.DataSource {
     private final InputStream inputStream;
 
     public InputStreamDataSource(InputStream inputStream) {

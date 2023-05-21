@@ -45,7 +45,10 @@ dependencies {
     implementation("jakarta.jws:jakarta.jws-api:3.0.0")
     implementation('org.glassfish.jaxb:jaxb-runtime:3.0.2')
     //WSDL Apache CXF dependencies
-    implementation("org.springframework:spring-beans:6.0.9")
+    implementation("org.springframework:spring-web:6.0.9")
+    implementation("org.springframework:spring-context:6.0.9")
+    implementation("org.apache.cxf:cxf-core:4.0.1")
+    implementation("org.apache.cxf:cxf-rt-management:4.0.1")
     implementation("org.apache.cxf:cxf-rt-frontend-jaxws:4.0.1")
     implementation("org.apache.cxf:cxf-rt-transports-http:4.0.1")
     implementation("org.apache.cxf:cxf-tools-java2ws:4.0.1")
@@ -55,6 +58,9 @@ dependencies {
     //Hibernate dependencies
     implementation('org.hibernate:hibernate-core:6.0.2.Final')
     implementation('org.hibernate.validator:hibernate-validator:7.0.5.Final')
+
+    //Apache Tomcat dependencies
+    compileOnly("org.apache.tomcat:tomcat-catalina:11.0.0-M5")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")

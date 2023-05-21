@@ -12,11 +12,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.atomic.AtomicReference;
 
-@WebService
-public class FileTransferService {
+
+@WebService(endpointInterface = "coffee.lkh.robotws.FileTransferService",
+        serviceName = "FileTransferService")
+public class FileTransferService implements IFileTransferService {
 
     @WebMethod
-    public SOAPMessage sendFile(@NotNull @XmlMimeType("application/octet-stream") byte[] remoteOctetStream) throws SOAPException, IOException {
+    public SOAPMessage sendFile(@XmlMimeType("application/octet-stream") byte @NotNull [] remoteOctetStream) throws SOAPException {
         // Convert ByteBuffer to InputStream
         final AtomicReference<InputStream> inputStream = new AtomicReference<>(new ByteArrayInputStream(remoteOctetStream));
 
