@@ -5,20 +5,32 @@
          version="4.0">
     <display-name>RobotWS</display-name>
     <!-- CXF Servlet configuration -->
+    <!-- Configure the JAX-WS runtime -->
     <servlet>
-        <description>Apache CXF Endpoint</description>
-        <display-name>cxf</display-name>
-        <servlet-name>cxf</servlet-name>
-        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
+        <servlet-name>JAX-WS Servlet</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <init-param>
+            <param-name>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</param-name>
+            <param-value>TRUE</param-value>
+        </init-param>
     </servlet>
+
     <servlet-mapping>
-        <servlet-name>cxf</servlet-name>
+        <servlet-name>JAX-WS Servlet</servlet-name>
         <url-pattern>/services/*</url-pattern>
     </servlet-mapping>
-    <session-config>
-        <session-timeout>60</session-timeout>
-    </session-config>
+
+    <!-- Configure the FileTransferService endpoint -->
+    <servlet>
+        <servlet-name>FileTransferService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FileTransferService</servlet-name>
+        <url-pattern>/file-transfer-service</url-pattern>
+    </servlet-mapping>
+
 
     <!-- Configure SOAP port monitoring for Tomcat -->
 
