@@ -1,0 +1,68 @@
+
+plugins {
+    id 'java'
+    id 'war'
+    id 'io.mateo.cxf-codegen' version '1.2.1'
+}
+
+group 'coffee.lkh'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+
+ext {
+    junitVersion = '5.9.2'
+}
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    implementation 'org.jetbrains:annotations:24.0.0'
+    //Concurrency and DI injection dependencies
+    compileOnly('jakarta.enterprise:jakarta.enterprise.cdi-api:3.0.0')
+    compileOnly('jakarta.enterprise.concurrent:jakarta.enterprise.concurrent-api:2.0.0')
+    compileOnly('jakarta.ejb:jakarta.ejb-api:4.0.0')
+    //Json dependencies
+    compileOnly('jakarta.json.bind:jakarta.json.bind-api:2.0.0')
+    compileOnly('jakarta.json:jakarta.json-api:2.0.1')
+    //Servlet dependencies
+    compileOnly('jakarta.security.enterprise:jakarta.security.enterprise-api:2.0.0')
+    compileOnly('jakarta.servlet:jakarta.servlet-api:5.0.0')
+    compileOnly('jakarta.transaction:jakarta.transaction-api:2.0.0')
+    //JAX-WS dependencies
+    compileOnly('jakarta.jms:jakarta.jms-api:3.0.0')
+    compileOnly('jakarta.xml.ws:jakarta.xml.ws-api:3.0.1')
+    implementation("jakarta.jws:jakarta.jws-api:3.0.0")
+    implementation('org.glassfish.jaxb:jaxb-runtime:3.0.2')
+    //WSDL Apache CXF dependencies
+    implementation("org.springframework:spring-beans:6.0.9")
+    implementation("org.apache.cxf:cxf-rt-frontend-jaxws:4.0.1")
+    implementation("org.apache.cxf:cxf-rt-transports-http:4.0.1")
+    implementation("org.apache.cxf:cxf-tools-java2ws:4.0.1")
+    implementation("org.apache.cxf:cxf-rt-frontend-jaxws:4.0.1")
+    implementation("org.apache.cxf:cxf-tools-wsdlto-core:4.0.1")
+    implementation("org.apache.cxf:cxf-tools-wsdlto-databinding-jaxb:4.0.1")
+    //Hibernate dependencies
+    implementation('org.hibernate:hibernate-core:6.0.2.Final')
+    implementation('org.hibernate.validator:hibernate-validator:7.0.5.Final')
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+
